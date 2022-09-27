@@ -6,12 +6,13 @@ I regret nothing about my first submission of this project, and if I wasn't so w
 
  **2017 original code results**  
  ![](https://github.com/ChrisJAnderson/VBA_Challenge/blob/main/Resources/OldCode2017.png)  
- **2018 original code results**
+ **2018 original code results**  
  ![](https://github.com/ChrisJAnderson/VBA_Challenge/blob/main/Resources/OldCode2018.png)   
+  
 **Refactored code results 2017**  
-![]()  
-**Refactored code results 2018**
-![]()  
+![](https://github.com/ChrisJAnderson/VBA_Challenge/blob/main/Resources/NewCode2017.png)  
+**Refactored code results 2018**  
+![](https://github.com/ChrisJAnderson/VBA_Challenge/blob/main/Resources/NewCode2018.png)  
 I was able to get a significant improvement in speed out of the refactoried code- down from just under a second in the original code to less than a tenth of a second in the refactored code. 2018 runs significantly faster in both cases, but I don't know why, since it's running the same macro. The ticker volumes in 2018 seem slightly smaller overall, which could be the reason.
 The results the refactored code outputs is correct with the module's code after a minor modification- the module (at least in 2.3.3) uses Cells(j,6).Value for both starting and ending prices, which gave me a headache for about half an hour before I noticed it.  The un-refactored macro I ran uses startingPrice = Cells(j, 3).Value for starting price and endingPrice = Cells(j, 6).Value for ending price instead of using startingPrice = Cells(j, 6).Value for both.  
 The extra columns Open and Close in the refactored screenshots are there to check my work on starting and ending price values (refactored as 
