@@ -14,8 +14,7 @@ I regret nothing about my first submission of this project, and if I wasn't so w
 **Refactored code results 2018**  
 ![](https://github.com/ChrisJAnderson/VBA_Challenge/blob/main/Resources/NewCode2018.png)  
 I was able to get a significant improvement in speed out of the refactoried code- down from just under a second in the original code to less than a tenth of a second in the refactored code. 2018 runs significantly faster in both cases, but I don't know why, since it's running the same macro. The ticker volumes in 2018 seem slightly smaller overall, which could be the reason.
-The results the refactored code outputs is correct with the module's code after a minor modification- the module (at least in 2.3.3) uses Cells(j,6).Value for both starting and ending prices, which gave me a headache for about half an hour before I noticed it.  The un-refactored macro I ran uses startingPrice = Cells(j, 3).Value for starting price and endingPrice = Cells(j, 6).Value for ending price instead of using startingPrice = Cells(j, 6).Value for both.  
-The extra columns Open and Close in the refactored screenshots are there to check my work on starting and ending price values (refactored as 
+The results between the two code blocks is consistent after a minor modification to the original macro. I use the refactored code: 
 ```
 If Cells(i, 1).Value = tickers(tickerIndex) And Cells(i - 1, 1).Value <> tickers(tickerIndex) Then
             
@@ -23,7 +22,7 @@ If Cells(i, 1).Value = tickers(tickerIndex) And Cells(i - 1, 1).Value <> tickers
             
         End If
 ```  
-and  
+for StartingPrices and 
 ```
 If Cells(i, 1).Value = tickers(tickerIndex) And Cells(i + 1, 1).Value <> tickers(tickerIndex) Then
             
@@ -34,7 +33,7 @@ If Cells(i, 1).Value = tickers(tickerIndex) And Cells(i + 1, 1).Value <> tickers
             
         End If
 ```
-respectively), and they do line up with what's in the spreadsheet, so I'm confident my results (while they don't match the screenshots in the module assignment) are correct.  
+for EndingPrices, and they do line up with what's in the spreadsheet, so I've changed the module's macro from using endingPrice = Cells(j, 6).Value for both StartingPrices and EndingPrices to using endingPrice = Cells(j, 3).Value for EndingPrices- I think this is correct for what we want to see from the metrics produced by the macro, but I'm confident that if I did it the other way and used Cells(j,6) for both arguments in the refactored code the results would still be the same across both macros.   
   
 In terms of the actual stock performance, we can see that 2018 was overall a bad year for investments unless you were investing only in ENPH or RUN, in which case you were very happy.
 DQ had an exceptionally bad year in 2018 compared to 2017, going from a 200% return down to a -60% return. Based on these numbers in a vaccuum, I would advise someone to invest in ENPH, which had good return in a mostly green year and proves resilient in a mostly red year as well. This seems to be a popular opinion- ENPH volumes went up by 400,000,000 in 2018.
